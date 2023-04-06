@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: py-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      name: py-pod
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: py-container
+        image: divyaasanjana/frontend-image
